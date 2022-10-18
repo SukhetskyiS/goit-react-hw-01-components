@@ -1,30 +1,37 @@
 import PropTypes from 'prop-types';
+import {
+  UserContainer,
+  UserCard,
+  UserData,
+  UserList,
+  UserItem,
+} from 'components/Profile/Profile.styled';
 
 export default function Profile({ avatar, username, tag, location, stats }) {
   return (
-    <div className="profile">
-      <div className="description">
-        <img src={avatar} alt="User avatar" className="avatar" />
-        <p className="name">{username}</p>
-        <p className="tag">@{tag}</p>
-        <p className="location">{location}</p>
-      </div>
+    <UserContainer>
+      <UserCard>
+        <img src={avatar} alt="User avatar" />
+        <UserData>{username}</UserData>
+        <UserData>@{tag}</UserData>
+        <UserData>{location}</UserData>
+      </UserCard>
 
-      <ul className="stats">
+      <UserList>
         <li>
-          <span className="label">Followers</span>
-          <span className="quantity"> {stats.followers}</span>
+          <UserItem>Followers</UserItem>
+          <span> {stats.followers}</span>
         </li>
         <li>
-          <span className="label">Views</span>
-          <span className="quantity"> {stats.views}</span>
+          <UserItem>Views</UserItem>
+          <span> {stats.views}</span>
         </li>
         <li>
-          <span className="label">Likes</span>
-          <span className="quantity"> {stats.likes}</span>
+          <UserItem>Likes</UserItem>
+          <span> {stats.likes}</span>
         </li>
-      </ul>
-    </div>
+      </UserList>
+    </UserContainer>
   );
 }
 
